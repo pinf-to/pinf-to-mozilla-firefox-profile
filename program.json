@@ -1,0 +1,35 @@
+{
+	"config": {
+		"genesis.pinf.org/0": {
+			"programs": {
+				"demos/01-HelloWorld": {
+					"location": "./node_modules/to.pinf.lib/node_modules/it.pinf.lib/demos/01-HelloWorld/program.json",
+					"config": {
+						"github.com/pinf-to/pinf-to-pio/0": {
+							"$to": "pio",
+							"ports": {
+								"default": "{{getFreePort()}}"
+							}
+						},
+						"github.com/pinf-to/pinf-to-browser/0": {
+							"$to": "server",
+							"bind": "127.0.0.1",
+							"port": "{{$from.pio.ports.default}}"
+						},
+						"github.com/pinf-to/pinf-to-mozilla-firefox-profile/0": {
+							"$to": "browser",
+							"homepage": "http://{{$from.server.bind}}:{{$from.server.port}}",
+							"extensions": {
+								"firebug@software.joehewitt.com": "https://getfirebug.com/releases/firebug/2.0/firebug-2.0.xpi",
+								"fbtrace@getfirebug.com": "https://getfirebug.com/releases/fbtrace/2.0/fbTrace-2.0b1.xpi"
+							},
+							"preferences": {
+								"extensions.firebug.alwaysOpenTraceConsole": true
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

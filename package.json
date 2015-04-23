@@ -1,0 +1,16 @@
+{
+  "uid": "github.com/pinf-to/pinf-to-mozilla-firefox-profile",
+  "name": "pinf-to-mozilla-firefox-profile",
+  "version": "0.1.0",
+  "main": "plugin.js",
+  "dependencies": {
+    "smi.cli": "0.x",
+    "bash.origin": "0.1.x",
+    "to.pinf.lib": "0.1.x"
+  },
+  "config": {
+    "pio.deploy.converter": {
+      "name": "nodejs-lib"
+    }
+  }
+}
